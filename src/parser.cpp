@@ -26,8 +26,8 @@ void Parser::add_command(std::string key,
     this->commands.insert({key, {function, min_parameter_count, max_parameter_count}});
 }
 
-std::map<std::string, std::vector<std::string>> Parser::parse(int argc, char *argv[]) {
-    std::map<std::string, std::vector<std::string>> results;
+fparser::Map Parser::parse(int argc, char *argv[]) {
+    fparser::Map results;
 
     for (int i = 0; i + 1 != argc; i++) {
         

@@ -8,6 +8,7 @@
 namespace fparser {
     class Parser;
     using Function = std::function<std::vector<std::string>(std::vector<std::string>)>;
+    using Map = std::map<std::string, std::vector<std::string>>;
 }
 
 struct command {
@@ -31,7 +32,7 @@ class fparser::Parser {
 
         // Parse the passed arguments.
         // Returns a map of command keys and vectors returned by their respective functions.
-        std::map<std::string, std::vector<std::string>> parse(int argc, char *argv[]);
+        fparser::Map parse(int argc, char *argv[]);
 
     private:
         std::map<std::string, command> commands;
