@@ -29,7 +29,7 @@ void Parser::add_command(std::string key,
 fparser::Map Parser::parse(int argc, char *argv[]) {
     fparser::Map results;
 
-    for (int i = 0; i + 1 != argc; i++) {
+    for (int i = 0; i != argc; i++) {
         
         std::string key(argv[i]);
         if (this->commands.contains(key)) {
