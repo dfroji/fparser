@@ -10,24 +10,24 @@
 
 using namespace fparser;
 
-parser::parser() {
+Parser::Parser() {
 
 }
 
-parser::~parser() {
+Parser::~Parser() {
 
 }
 
-void parser::add_command(std::string key, 
-                         std::function<int(std::vector<std::string>)> function, 
+void Parser::add_command(std::string key, 
+                         fparser::Function function, 
                          int min_parameter_count, 
                          int max_parameter_count
                         ) {
-    this->commands.insert({key, {min_parameter_count, max_parameter_count, function}});
+    this->commands.insert({key, {function, min_parameter_count, max_parameter_count}});
 }
 
-std::map<std::string, int> parser::parse(int argc, char *argv[]) {
-    std::map<std::string, int> results;
+std::map<std::string, std::vector<std::string>> Parser::parse(int argc, char *argv[]) {
+    std::map<std::string, std::vector<std::string>> results;
 
     for (int i = 0; i + 1 != argc; i++) {
         
