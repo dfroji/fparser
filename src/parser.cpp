@@ -36,15 +36,28 @@ std::map<std::string, int> parser::parse(int argc, char *argv[]) {
             command cmnd = this->commands[key];
             std::vector<std::string> parameters;
 
+            // Parse parameters into vector parameters
             for (int j = 0; j < cmnd.max_parameter_count; j++) {
-                if (i+j+1 >= argc) {break;}
+
+                // Quit if the command's max parameter count goes beyond the argument count
+                if (i+j+1 >= argc) {break;} 
+
                 std::string parameter(argv[i+j+1]);
+
+                // Quit if the current argument is a key
                 if (this->commands.contains(parameter)) {break;}
+
                 parameters.push_back(parameter);
             }
 
+            // Return empty map if a command has too few arguments
             if (parameters.size() < cmnd.min_parameter_count) {
-                std::cout << "Invalid number of arguments for command " << key << "." << std::endl;
+                std::cout << "Invalid number of arguments for command " 
+                          << key 
+                          << " (Minimum of " 
+                          << cmnd.min_parameter_count 
+                          << ")." 
+                          << std::endl;
                 return {};
             } 
 
