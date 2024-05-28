@@ -83,3 +83,20 @@ Invalid number of arguments for command -a (Minimum of 1).
 ```
 
 ## Including with CMake
+```
+include(FetchContent)
+FetchContent_Declare(fparser
+    GIT_REPOSITORY https://gitlab.com/froji/fparser
+    GIT_TAG 06a0378a363d8a6dec0378878edf09b8de94824b
+    )
+
+include_directories(fparser
+    ${fparser_SOURCE_DIR}/include
+    )
+
+FetchContent_MakeAvailable(fparser)
+
+target_link_libraries(<project>
+    PRIVATE fparser
+    )
+```
