@@ -1,6 +1,6 @@
 # fparser
 
-A rudimentary single class c++ library for generalizing command-line input parsing.
+A primitive command line argument parser I made for [ffilter](https://github.com/dfroji/ffilter). Definitely rewriting this the next time a project of mine uses command line arguments.
 
 ## How to use
 
